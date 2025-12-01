@@ -1,3 +1,13 @@
 {
-  "messages": []
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a function that uses the OpenAI API to generate a response based on user input."
+    },
+    {
+      "role": "assistant",
+      "content": "Here is a sample function that uses the OpenAI API to generate a response based on user input:\n\n```typescript\nimport OpenAI from 'openai'\n\nconst openai = new OpenAI({\n  apiKey: process.env.OPENAI_API_KEY,\n})\n\nexport async function generateResponse(userInput: string): Promise<string> {\n  const response = await openai.chat.completions.create({\n    model: 'gpt-4o',\n    messages: [\n      { role: 'user', content: userInput }\n    ],\n  })\n\n  return response.choices[0].message.content\n}\n```\n\nMake sure to replace `'gpt-4o'` with the desired model and set your OpenAI API key in the environment variables."
+    }
+
+  ]
 }
